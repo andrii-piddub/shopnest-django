@@ -9,16 +9,17 @@
 		<!-- ============================ COMPONENT 1 ================================= -->
 		<div class="card">
 			<div class="row no-gutters">
-				<aside class="col-md-6">
+		<aside class="col-md-6">
 					<article class="gallery-wrap">
 						<div class="img-big-wrap mainImage">
-							<img src="{{ single_product.images.url }}">
-						</div> <!-- img-big-wrap.// --> 
+							<center><img src="{{ single_product.images.url }}"></center>
+						</div> <!-- img-big-wrap.// -->
 
 					</article> <!-- gallery-wrap .end// -->
-					<ul class="thumb"> 
+					<ul class="thumb">
 						<li>
-							{% for i  in product_gallery %}
+							<a href="{{ single_product.images.url }}" target="mainImage"><img src="{{ single_product.images.url }}" alt="Product Image"></a>
+							{% for i in product_gallery %}
 							<a href="{{i.image.url}}" target="mainImage"><img src="{{i.image.url}}" alt="Product Image"></a>
 							{% endfor %}
 						</li>
@@ -186,3 +187,7 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 {% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/product_detail.js' %}"></script>
+{% endblock scripts %}
